@@ -1,0 +1,2 @@
+[build]
+target = "x86_64-pc-windows-gnu" # unfortunately we need a bunch of dlls from the game so this isn't possible to run natively on linux
