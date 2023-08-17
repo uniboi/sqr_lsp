@@ -5,10 +5,10 @@ use libc::{c_void, malloc};
 pub static mut g_pMemAllocSingleton: *const c_void = std::ptr::null::<c_void>();
 
 #[no_mangle]
-pub extern "C" fn CreateGlobalMemAlloc() -> MemoryAllocator<'static> {
+pub extern "C" fn CreateGlobalMemAlloc() -> *mut MemoryAllocator<'static> {
     let vtable: &'static mut MemoryAllocatorVTable =
         Box::leak(Box::new(MemoryAllocatorVTable::new()));
-    MemoryAllocator { vtable }
+    Box::leak(Box::new(MemoryAllocator { vtable }))
 }
 
 #[repr(C)]

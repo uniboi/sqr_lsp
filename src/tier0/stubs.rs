@@ -15,6 +15,9 @@ extern "C" fn JTGuts_AddDependentJobArray() {}
 #[no_mangle]
 extern "C" fn LoggingSystem_Log() {}
 
+#[export_name = "LoggingSystem_RegisterLoggingChannel"]
+extern "C" fn LoggingSystem_RegisterLoggingChannel() {}
+
 #[no_mangle]
 extern "C" fn SendRemoteErrorReport() {}
 
@@ -28,13 +31,13 @@ extern "C" fn Error() {}
 extern "C" fn GetCPUInformation() {}
 
 #[no_mangle]
-extern "C" fn MemFreeScrath() {}
+extern "C" fn MemFreeScratch() {}
 
 #[no_mangle]
 extern "C" fn MemAllocScratch() {}
 
 #[no_mangle]
-extern "C" fn Print_GetTimestamp() {}
+extern "C" fn Print_GetTimeStamp() {}
 
 #[no_mangle]
 extern "C" fn ThreadSleep() {}
@@ -269,3 +272,6 @@ extern "C" fn JT_SetThreadIdx() {}
 
 #[export_name = "?Start@CThread@@UEAA_N_KW4ThreadPriorityEnum_t@1@@Z"]
 extern "C" fn Start_CThread() {}
+
+#[export_name = "?Run@CThread@@MEAAHXZ"]
+extern "C" fn Run_CThread(){}
